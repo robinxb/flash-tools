@@ -36,16 +36,11 @@ function importFile(URI)
     var success = dom.importFile(URI);
     if(success)
     {
-var indexOfFileName = URI.lastIndexOf("URI/");
-var documentName = flash.documents[0].name;
-var foldsolderStructure = URI.slice(URI.indexOf(documentName) + documentName.length + 1,indexOfFileName);
-        if(folderStructure){
-            dom.library.newFolder(folderStructure);
-}
-        var fileName = URI.slice(indexOfFileName + 1,URI.length);
-        dom.library.moveToFolder(folderStructure, fileName, true);
-indexOfDotInFileName = fileName.lastIndexOf(".");
-dom.convertToSymbol("graphic", fileName.slice(0, indexOfDotInFileName), "top left");
+		var indexOfFileName = URI.lastIndexOf("/");
+		var documentName = flash.documents[0].name;
+		var fileName = URI.slice(indexOfFileName + 1,URI.length);
+		indexOfDotInFileName = fileName.lastIndexOf(".");
+		dom.convertToSymbol("graphic", fileName.slice(0, indexOfDotInFileName), "top left");
     }
     return;
 }
