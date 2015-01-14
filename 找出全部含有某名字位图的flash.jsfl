@@ -1,8 +1,9 @@
 var folderURI = fl.browseForFolderURL('select a folder which you want to search in');
 var ToFind = prompt("the name you want to search", "")
-
-if (ToFind == ""){
-    alert('You can't leave the name for empty);
+if (ToFind == null){
+    alert("You can't leave the name for empty");
+}else{
+	batToDo(folderURI);
 }
 
 function batToDo(folderURI) {
@@ -28,5 +29,5 @@ function pub(dir, file) {
     doc.close(false);
 }
 
-batToDo(folderURI);
+
 
